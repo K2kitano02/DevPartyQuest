@@ -100,9 +100,10 @@ git pull --ff-only
 
 ## サブエージェント
 
-Planner、Generator、Evaluator の役割定義は `.codex/agents/` にあります。
+Planner、Test Writer、Generator、Evaluator の役割定義は `.codex/agents/` にあります。
 
 - Planner: 短い依頼を製品仕様書とスプリント計画に展開します。
+- Test Writer: 対象Issueの仕様と受け入れ基準から、実装前に失敗するテストを作成します。
 - Generator: 仕様書に従い、1スプリント1機能ずつ実装します。
 - Evaluator: Playwright MCP で実際に操作し、合否と修正点を返します。
 
