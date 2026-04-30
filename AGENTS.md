@@ -2,7 +2,7 @@
 
 ## プロジェクト構成とモジュール配置
 
-このリポジトリは、React + TypeScript で作る **Dev Party Quest** の初期段階プロジェクトです。アプリ概要は `README.md`、詳細仕様と実装計画は `.codex/Plan.md`、実装Issue一覧は `.codex/TODO.md` にあります。
+このリポジトリは、React + TypeScript + Tailwind CSS で作る **Dev Party Quest** の初期段階プロジェクトです。アプリ概要は `README.md`、詳細仕様と実装計画は `.codex/Plan.md`、実装Issue一覧は `.codex/TODO.md` にあります。
 
 実装時は次の構成を基本にしてください。
 

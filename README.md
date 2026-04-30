@@ -28,6 +28,7 @@
 
 - React
 - TypeScript
+- Tailwind CSS
 
 ## デプロイ
 - Vercel
