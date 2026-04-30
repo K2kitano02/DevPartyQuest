@@ -123,6 +123,7 @@ Verified:
 
 Status: In Progress
 Branch: feature/05_issue2-diagnosis-types
+PR: #6
 Verified:
 - npm test
 - npm run build
