@@ -10,6 +10,16 @@ Dev Party Quest の実装Issue一覧です。
 
 ## Issue 0: React + TypeScript/Vite + Tailwind CSS の初期構成とテスト画面を作成する
 
+Status: Done
+Branch: feature/02_issue0-vite-setup
+PR: #3
+Verified:
+- npm install
+- npm run build
+- npm run dev -- --host 127.0.0.1
+- ローカル開発サーバーの HTTP 200 応答確認
+- Tailwind CSS が Vite 経由で配信されることを確認
+
 # なぜ必要か
 
 - 現在のIssueは `src/` 以下の機能実装から始まっているが、アプリを起動するための `package.json` やViteのエントリーポイントがまだ存在しないため。
@@ -64,6 +74,14 @@ Dev Party Quest の実装Issue一覧です。
 
 ## Issue 1: Vercelで初回デプロイする
 
+Status: Done
+Branch: feature/04_issue1-vercel-deploy
+Production URL: https://devpartyquest.vercel.app/
+Verified:
+- Vercel にデプロイ済み
+- 本番URLで HTTP 200 応答確認
+- README.md に公開URLを記録
+
 # なぜ必要か
 
 - テスト画面作成後すぐにデプロイすることで、バグの早期発見につなげるため。
@@ -88,12 +106,16 @@ Dev Party Quest の実装Issue一覧です。
 - Output Directory が `dist` になっていることを確認する。
 - Deployを実行する。
 - 発行されたURLにアクセスしてテスト画面が表示されることを確認する。
+- 本番URL `https://devpartyquest.vercel.app/` にアクセスして、テスト画面が表示されることを確認する。
+- 公開URLを `README.md` に記録する。
 
 # ゴール(期待する動作など)
 
 - Vercel上でアプリが公開されている。
 - 公開URLにアクセスするとテスト画面が表示される。
+- 本番URL `https://devpartyquest.vercel.app/` で表示確認できる。
 - ローカルと本番の表示に大きな差異がないことを確認できる。
+- `README.md` から公開URLを確認できる。
 - 以降のIssueで機能追加後、同じURL上で本番確認できる状態になっている。
 
 ## Issue 2: 診断用の型定義を作成する

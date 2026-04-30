@@ -31,7 +31,9 @@
 - Tailwind CSS
 
 ## デプロイ
+
 - Vercel
+- 公開URL: https://devpartyquest.vercel.app/
 
 ## 主な機能
 
