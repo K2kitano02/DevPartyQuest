@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    Inter, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo,
+    sans-serif;
+}

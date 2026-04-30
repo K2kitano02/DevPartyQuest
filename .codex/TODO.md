@@ -8,7 +8,7 @@ Dev Party Quest の実装Issue一覧です。
 
 このファイルは、実装順序、Issueごとの目的、作業内容、完了条件を管理します。仕様の詳細や配点、表示文言の判断に迷った場合は `.codex/Plan.md` を優先してください。
 
-## Issue 0: React + TypeScript/Vite の初期構成とテスト画面を作成する
+## Issue 0: React + TypeScript/Vite + Tailwind CSS の初期構成とテスト画面を作成する
 
 # なぜ必要か
 
@@ -19,6 +19,7 @@ Dev Party Quest の実装Issue一覧です。
 # 必要なこと(簡易的に)
 
 - React + TypeScript + Vite の最小構成を作成する。
+- Tailwind CSS を使ってスタイルを実装できる環境を作成する。
 - 開発・ビルド・プレビュー用のnpm scriptsを用意する。
 - `src/` 配下に今後の実装で使う基本ディレクトリを作成する。
 - 本番表示確認用の簡易テスト画面を作成する。
@@ -32,10 +33,11 @@ Dev Party Quest の実装Issue一覧です。
   - `build`
   - `preview`
 - React、React DOM、Vite、TypeScript、Vite React plugin など、Vite + React + TypeScript に必要な依存関係を追加する。
+- Tailwind CSS と Vite 用Tailwind plugin を追加する。
 - `index.html` を作成する。
 - `src/main.tsx` を作成する。
 - `src/App.tsx` を作成する。
-- 必要に応じて `src/App.css` または `src/index.css` を作成する。
+- `src/index.css` を作成し、Tailwind CSS を読み込む。
 - 以下のディレクトリを作成する。
   - `src/components/`
   - `src/data/`
@@ -44,10 +46,11 @@ Dev Party Quest の実装Issue一覧です。
 - TypeScript/Viteに必要な設定ファイルを作成する。
   - `tsconfig.json`
   - `vite.config.ts`
+- `vite.config.ts` にReact pluginとTailwind CSS pluginを設定する。
 - `src/App.tsx` では一旦、テスト画面として以下を表示する。
   - `Dev Party Quest`
   - `デプロイ確認用テスト画面`
-  - `React + TypeScript + Vite で起動中`
+  - `React + TypeScript + Vite + Tailwind CSS で起動中`
   - 簡易的なボタンまたはカード表示
 
 # ゴール(期待する動作など)
@@ -56,6 +59,7 @@ Dev Party Quest の実装Issue一覧です。
 - `npm run dev` で開発サーバーを起動できる。
 - ブラウザで開くとテスト画面が表示される。
 - `npm run build` が成功する。
+- Tailwind CSS のユーティリティクラスでスタイルを指定できる。
 - 以降のIssueで `src/` 以下の実装を進められる状態になっている。
 
 ## Issue 1: Vercelで初回デプロイする
