@@ -121,6 +121,13 @@ Verified:
 
 ## Issue 2: 診断用の型定義を作成する
 
+Status: In Progress
+Branch: feature/05_issue2-diagnosis-types
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でローカル画面表示とコンソールエラーなしを確認
+
 # なぜ必要か
 
 - 質問データ、回答データ、結果データ、スコア計算で共通して使う型を先に定義するため。
