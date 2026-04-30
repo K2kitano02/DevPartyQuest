@@ -76,6 +76,7 @@ Verified:
 
 Status: Done
 Branch: feature/04_issue1-vercel-deploy
+PR: #5
 Production URL: https://devpartyquest.vercel.app/
 Verified:
 - Vercel にデプロイ済み
