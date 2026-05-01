@@ -156,7 +156,7 @@ Verified:
 
 ## Issue 3: 結果データを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/06_issue3-results-data
 PR: #7
 Verified:
@@ -207,6 +207,14 @@ Verified:
 - `compatibility.good` の値から相性の良いタイプ名を表示できる。
 
 ## Issue 4: 質問データを作成する
+
+Status: In Progress
+Branch: feature/07_issue4-question-data
+PR: #8
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でローカル画面表示とコンソールエラーなしを確認
 
 # なぜ必要か
 
