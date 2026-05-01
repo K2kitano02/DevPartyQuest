@@ -285,7 +285,7 @@ Verified:
 
 ## Issue 6: トップページを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/09_issue6-start-screen
 PR: #10
 Verified:
@@ -320,6 +320,13 @@ Verified:
 - 「診断を始める」ボタンを押すと1問目へ進む。
 
 ## Issue 7: 回答ボタンコンポーネントを作成する
+
+Status: In Progress
+Branch: feature/10_issue7-answer-button
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページ表示とコンソールエラーなしを確認
 
 # なぜ必要か
 
