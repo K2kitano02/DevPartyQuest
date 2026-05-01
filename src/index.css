@@ -1,7 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans:
-    Inter, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo,
-    sans-serif;
+    "Space Grotesk", Inter, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", Meiryo, sans-serif;
+}
+
+@layer base {
+  html {
+    background: #0c0e10;
+  }
+
+  body {
+    min-width: 320px;
+    background: #0c0e10;
+  }
+}
+
+@layer components {
+  .quest-bg {
+    position: relative;
+    overflow-x: hidden;
+    background-color: #121416;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 2px, transparent 2px),
+      radial-gradient(circle at 50% 42%, rgb(255 204 51 / 0.16), transparent 24%),
+      linear-gradient(135deg, #0c0e10 0%, #16243a 46%, #111827 100%);
+    background-size:
+      32px 32px,
+      32px 32px,
+      auto,
+      auto;
+  }
+
+  .quest-bg::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.16) 50%
+    );
+    background-size: 100% 4px;
+  }
+
+  .quest-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .quest-panel {
+    border: 4px solid #ffffff;
+    outline: 2px solid #000000;
+    background:
+      linear-gradient(180deg, rgb(0 68 204 / 0.96), rgb(0 34 102 / 0.98));
+    box-shadow:
+      8px 8px 0 #000000,
+      inset 4px 4px 0 rgb(255 255 255 / 0.22),
+      inset -4px -4px 0 rgb(0 0 0 / 0.34);
+  }
+
+  .quest-inset {
+    border: 2px solid rgb(255 255 255 / 0.42);
+    background-color: rgb(15 23 42 / 0.76);
+    box-shadow:
+      4px 4px 0 rgb(0 0 0 / 0.9),
+      inset 2px 2px 0 rgb(255 255 255 / 0.1);
+  }
+
+  .quest-button-primary {
+    border-right: 8px solid #a16207;
+    border-bottom: 8px solid #a16207;
+    background-color: #ffcc33;
+    color: #000000;
+    box-shadow:
+      inset 4px 4px 0 rgb(255 255 255 / 0.3),
+      inset -4px -4px 0 rgb(0 0 0 / 0.32);
+  }
+
+  .quest-button-primary:hover {
+    background-color: #fde68a;
+  }
+
+  .quest-button-primary:active {
+    transform: translate(4px, 4px);
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+  }
+
+  .quest-button-secondary {
+    border: 2px solid rgb(255 255 255 / 0.36);
+    background-color: rgb(15 23 42 / 0.72);
+    box-shadow: 4px 4px 0 rgb(0 0 0 / 0.9);
+  }
+
+  .quest-button-secondary:hover {
+    border-color: #ffcc33;
+    background-color: rgb(255 204 51 / 0.14);
+  }
 }
