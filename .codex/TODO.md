@@ -208,7 +208,7 @@ Verified:
 
 ## Issue 4: 質問データを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/07_issue4-question-data
 PR: #8
 Verified:
@@ -247,6 +247,13 @@ Verified:
 - 各回答にスコア加算対象が定義されている。
 
 ## Issue 5: スコア計算ロジックを作成する
+
+Status: In Progress
+Branch: feature/08_issue5-diagnosis-logic
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でローカル画面表示とコンソールエラーなしを確認
 
 # なぜ必要か
 
