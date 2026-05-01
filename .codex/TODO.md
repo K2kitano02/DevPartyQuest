@@ -469,8 +469,9 @@ Verified:
 
 ## Issue 11: アプリ全体の画面状態を管理する
 
-Status: In Progress
+Status: Done
 Branch: feature/14_issue11-app-state
+PR: #15
 Verified:
 - npm test
 - npm run build
@@ -511,6 +512,9 @@ Verified:
 - もう一度診断すると最初の状態に戻る。
 
 ## Issue 12: X共有機能を作成する
+
+Status: In Progress
+Branch: feature/15_issue12-x-share
 
 # なぜ必要か
 
