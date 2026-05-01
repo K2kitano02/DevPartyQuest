@@ -121,7 +121,7 @@ Verified:
 
 ## Issue 2: 診断用の型定義を作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/05_issue2-diagnosis-types
 PR: #6
 Verified:
@@ -155,6 +155,14 @@ Verified:
 - 以降のデータ定義、スコア計算、コンポーネントで同じ型を使い回せる。
 
 ## Issue 3: 結果データを作成する
+
+Status: In Progress
+Branch: feature/06_issue3-results-data
+PR: #7
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でローカル画面表示とコンソールエラーなしを確認
 
 # なぜ必要か
 
