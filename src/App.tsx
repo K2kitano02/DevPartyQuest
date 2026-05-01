@@ -7,6 +7,7 @@ import { questions } from "./data/questions";
 import { results } from "./data/results";
 import type { Answer, AppStep, RoleType, Scores } from "./types/diagnosis";
 import { addScores, calculateResult, initialScores } from "./utils/diagnosis";
+import { shareToX } from "./utils/share";
 
 function App() {
   const [step, setStep] = useState<AppStep>("start");
@@ -53,7 +54,7 @@ function App() {
         <ResultCard
           result={results[resultType]}
           onRestart={handleRestart}
-          onShare={() => {}}
+          onShare={() => shareToX(results[resultType])}
         />
       </main>
     );
