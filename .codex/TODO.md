@@ -250,6 +250,7 @@ Verified:
 
 Status: In Progress
 Branch: feature/08_issue5-diagnosis-logic
+PR: #9
 Verified:
 - npm test
 - npm run build
