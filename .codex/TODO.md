@@ -421,8 +421,9 @@ Verified:
 
 ## Issue 10: 結果カードコンポーネントを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/13_issue10-result-card
+PR: #14
 Verified:
 - npm test
 - npm run build
@@ -467,6 +468,13 @@ Verified:
 - X共有処理を呼び出せる。
 
 ## Issue 11: アプリ全体の画面状態を管理する
+
+Status: In Progress
+Branch: feature/14_issue11-app-state
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページ、8問回答、結果表示、もう一度診断でトップへ戻ること、コンソールエラーなしを確認
 
 # なぜ必要か
 
