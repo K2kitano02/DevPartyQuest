@@ -383,8 +383,9 @@ Verified:
 
 ## Issue 9: 質問カードコンポーネントを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/12_issue9-question-card
+PR: #13
 Verified:
 - npm test
 - npm run build
@@ -419,6 +420,13 @@ Verified:
 - 回答を押すと親コンポーネントに回答データが渡る。
 
 ## Issue 10: 結果カードコンポーネントを作成する
+
+Status: In Progress
+Branch: feature/13_issue10-result-card
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページから診断開始後の既存質問画面表示、コンソールエラーなしを確認
 
 # なぜ必要か
 
