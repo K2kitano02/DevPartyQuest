@@ -513,8 +513,15 @@ Verified:
 
 ## Issue 12: X共有機能を作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/15_issue12-x-share
+PR: #16
+Production URL: https://devpartyquest.vercel.app/
+Verified:
+- npm test
+- npm run build
+- Playwright MCP で結果画面のX共有ボタンから投稿画面URLが別タブで開くこと、コンソールエラーなしを確認
+- 本番環境で全体動作確認済み
 
 # なぜ必要か
 
@@ -550,6 +557,14 @@ Branch: feature/15_issue12-x-share
 - 投稿文にタイプ名、キャッチコピー、ハッシュタグが含まれる。
 
 ## Issue 13: 最低限のRPG風スタイルを当てる
+
+Status: In Progress
+Branch: feature/16_issue13-rpg-style
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でデスクトップ幅のトップ、質問、結果画面表示とコンソールエラーなしを確認
+- Playwright MCP で390px幅のトップ、質問、結果画面に横スクロールがないことを確認
 
 # なぜ必要か
 

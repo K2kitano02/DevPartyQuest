@@ -50,12 +50,14 @@ function App() {
 
   if (step === "result" && resultType !== null) {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 px-5 py-10">
-        <ResultCard
-          result={results[resultType]}
-          onRestart={handleRestart}
-          onShare={() => shareToX(results[resultType])}
-        />
+      <main className="quest-bg grid min-h-screen place-items-center px-4 py-8 sm:px-5 sm:py-10">
+        <div className="quest-content w-full max-w-3xl">
+          <ResultCard
+            result={results[resultType]}
+            onRestart={handleRestart}
+            onShare={() => shareToX(results[resultType])}
+          />
+        </div>
       </main>
     );
   }
@@ -63,13 +65,15 @@ function App() {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <main className="grid min-h-screen place-items-center bg-slate-950 px-5 py-10 text-white">
-      <QuestionCard
-        question={currentQuestion}
-        currentQuestionIndex={currentQuestionIndex}
-        totalQuestions={questions.length}
-        onAnswer={handleAnswer}
-      />
+    <main className="quest-bg grid min-h-screen place-items-center px-4 py-8 text-white sm:px-5 sm:py-10">
+      <div className="quest-content w-full max-w-2xl">
+        <QuestionCard
+          question={currentQuestion}
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+          onAnswer={handleAnswer}
+        />
+      </div>
     </main>
   );
 }

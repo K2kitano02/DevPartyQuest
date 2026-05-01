@@ -16,12 +16,12 @@ function QuestionCard({
   onAnswer,
 }: QuestionCardProps) {
   return (
-    <section className="w-full max-w-2xl rounded-lg border border-white/15 bg-white/10 p-6 shadow-2xl shadow-black/30 sm:p-8">
+    <section className="quest-panel w-full p-5 text-white sm:p-8">
       <ProgressBar
         currentQuestionIndex={currentQuestionIndex}
         totalQuestions={totalQuestions}
       />
-      <h1 className="mt-5 text-3xl leading-tight font-black">
+      <h1 className="mt-6 text-2xl leading-tight font-black drop-shadow-[3px_3px_0_rgba(0,0,0,1)] sm:text-3xl">
         {question.text}
       </h1>
       <div className="mt-6 grid gap-3">
