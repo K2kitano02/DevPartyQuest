@@ -248,7 +248,7 @@ Verified:
 
 ## Issue 5: スコア計算ロジックを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/08_issue5-diagnosis-logic
 PR: #9
 Verified:
@@ -284,6 +284,13 @@ Verified:
 - 同点の場合も固定の優先順位で1つのタイプを取得できる。
 
 ## Issue 6: トップページを作成する
+
+Status: In Progress
+Branch: feature/09_issue6-start-screen
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページ表示、診断開始後の1問目表示、コンソールエラーなしを確認
 
 # なぜ必要か
 
