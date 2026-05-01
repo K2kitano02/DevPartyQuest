@@ -352,8 +352,9 @@ Verified:
 
 ## Issue 8: 進捗バーコンポーネントを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/11_issue8-progress-bar
+PR: #12
 Verified:
 - npm test
 - npm run build
@@ -381,6 +382,13 @@ Verified:
 - 回答が進むごとに進捗バーが伸びる。
 
 ## Issue 9: 質問カードコンポーネントを作成する
+
+Status: In Progress
+Branch: feature/12_issue9-question-card
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページから診断開始後に `1 / 8`、質問文、4つの回答ボタン表示、コンソールエラーなしを確認
 
 # なぜ必要か
 
