@@ -287,6 +287,7 @@ Verified:
 
 Status: In Progress
 Branch: feature/09_issue6-start-screen
+PR: #10
 Verified:
 - npm test
 - npm run build
