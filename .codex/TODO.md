@@ -321,7 +321,7 @@ Verified:
 
 ## Issue 7: 回答ボタンコンポーネントを作成する
 
-Status: In Progress
+Status: Done
 Branch: feature/10_issue7-answer-button
 PR: #11
 Verified:
@@ -351,6 +351,13 @@ Verified:
 - ボタンを押すと指定した処理が実行される。
 
 ## Issue 8: 進捗バーコンポーネントを作成する
+
+Status: In Progress
+Branch: feature/11_issue8-progress-bar
+Verified:
+- npm test
+- npm run build
+- Playwright MCP でトップページから診断開始後に `1 / 8` 表示、コンソールエラーなしを確認
 
 # なぜ必要か
 
