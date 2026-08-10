@@ -45,6 +45,10 @@ function findAnswerButton(node: ReactNode, text: string): ReactNode {
 
   const children = node.props.children;
 
+  if (children === text) {
+    return node;
+  }
+
   if (Array.isArray(children)) {
     return children.map((child) => findAnswerButton(child, text)).find(Boolean) ?? null;
   }
@@ -59,6 +63,8 @@ describe("QuestionCard", () => {
         question={question}
         currentQuestionIndex={0}
         totalQuestions={8}
+        canGoBack={false}
+        onBack={() => {}}
         onAnswer={() => {}}
       />,
     );
@@ -76,6 +82,8 @@ describe("QuestionCard", () => {
       question,
       currentQuestionIndex: 0,
       totalQuestions: 8,
+      canGoBack: false,
+      onBack: () => {},
       onAnswer,
     });
     const targetAnswer = question.answers[1];
@@ -88,5 +96,41 @@ describe("QuestionCard", () => {
     button.props.onClick?.();
 
     expect(onAnswer).toHaveBeenCalledWith(targetAnswer);
+  });
+
+  it("2問目以降では前の質問に戻るボタンを表示する", () => {
+    const html = renderToStaticMarkup(
+      <QuestionCard
+        question={question}
+        currentQuestionIndex={1}
+        totalQuestions={8}
+        canGoBack
+        onBack={() => {}}
+        onAnswer={() => {}}
+      />,
+    );
+
+    expect(html).toContain("前の質問に戻る");
+  });
+
+  it("戻るボタン押下時に親へ通知する", () => {
+    const onBack = vi.fn<() => void>();
+    const card = QuestionCard({
+      question,
+      currentQuestionIndex: 1,
+      totalQuestions: 8,
+      canGoBack: true,
+      onBack,
+      onAnswer: () => {},
+    });
+    const backButton = findAnswerButton(card, "前の質問に戻る");
+
+    if (!isValidElement<TestElementProps>(backButton)) {
+      throw new Error("戻るボタンが見つかりませんでした");
+    }
+
+    backButton.props.onClick?.();
+
+    expect(onBack).toHaveBeenCalledOnce();
   });
 });
