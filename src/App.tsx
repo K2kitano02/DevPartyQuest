@@ -13,12 +13,14 @@ function App() {
   const [step, setStep] = useState<AppStep>("start");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState<Scores>(initialScores);
+  const [scoreHistory, setScoreHistory] = useState<Scores[]>([]);
   const [resultType, setResultType] = useState<RoleType | null>(null);
 
   function handleStart() {
     setStep("question");
     setCurrentQuestionIndex(0);
     setScores(initialScores);
+    setScoreHistory([]);
     setResultType(null);
   }
 
@@ -27,6 +29,7 @@ function App() {
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
     setScores(nextScores);
+    setScoreHistory((history) => [...history, scores]);
 
     if (isLastQuestion) {
       setResultType(calculateResult(nextScores));
@@ -37,10 +40,24 @@ function App() {
     setCurrentQuestionIndex((index) => index + 1);
   }
 
+  function handleBack() {
+    if (currentQuestionIndex === 0) {
+      return;
+    }
+
+    const previousScores = scoreHistory[scoreHistory.length - 1] ?? initialScores;
+
+    setCurrentQuestionIndex((index) => Math.max(index - 1, 0));
+    setScores(previousScores);
+    setScoreHistory((history) => history.slice(0, -1));
+    setResultType(null);
+  }
+
   function handleRestart() {
     setStep("start");
     setCurrentQuestionIndex(0);
     setScores(initialScores);
+    setScoreHistory([]);
     setResultType(null);
   }
 
@@ -71,6 +88,8 @@ function App() {
           question={currentQuestion}
           currentQuestionIndex={currentQuestionIndex}
           totalQuestions={questions.length}
+          canGoBack={currentQuestionIndex > 0}
+          onBack={handleBack}
           onAnswer={handleAnswer}
         />
       </div>
