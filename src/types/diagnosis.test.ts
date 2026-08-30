@@ -44,7 +44,9 @@ describe("diagnosis types", () => {
     expectTypeOf<Result["strengths"]>().toEqualTypeOf<string[]>();
   });
 
-  it("画面状態は開始、質問、結果の3種類に固定する", () => {
-    expectTypeOf<AppStep>().toEqualTypeOf<"start" | "question" | "result">();
+  it("画面状態は開始、質問、最終選択、結果の4種類に固定する", () => {
+    expectTypeOf<AppStep>().toEqualTypeOf<
+      "start" | "question" | "tieBreak" | "result"
+    >();
   });
 });
