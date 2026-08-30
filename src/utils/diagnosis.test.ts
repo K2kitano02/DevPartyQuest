@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {
   addScores,
-  calculateResult,
+  getTopRoles,
   initialScores,
-  rolePriority,
+  roleTypes,
 } from "./diagnosis";
 import type { Scores } from "../types/diagnosis";
 
@@ -22,8 +22,8 @@ describe("diagnosis utils", () => {
     });
   });
 
-  it("同点時の優先順位をPlan.md通りに持つ", () => {
-    expect(rolePriority).toEqual([
+  it("Plan.mdで定義された8タイプを順番通りに持つ", () => {
+    expect(roleTypes).toEqual([
       "productHero",
       "uiMage",
       "logicKnight",
@@ -62,23 +62,34 @@ describe("diagnosis utils", () => {
     expect(currentScores.productHero).toBe(1);
   });
 
-  it("最もスコアが高いタイプを結果として返す", () => {
+  it("単独で最もスコアが高いタイプだけを返す", () => {
     expect(
-      calculateResult({
+      getTopRoles({
         ...initialScores,
         bugHunter: 3,
         logicKnight: 2,
       }),
-    ).toBe("bugHunter");
+    ).toEqual(["bugHunter"]);
   });
 
-  it("同点の場合はrolePriorityで先に定義されたタイプを返す", () => {
+  it("最高点が2タイプ同点なら両方を返す", () => {
     expect(
-      calculateResult({
+      getTopRoles({
         ...initialScores,
         logicKnight: 4,
         bugHunter: 4,
       }),
-    ).toBe("logicKnight");
+    ).toEqual(["logicKnight", "bugHunter"]);
+  });
+
+  it("最高点が3タイプ同点なら3タイプすべてを返す", () => {
+    expect(
+      getTopRoles({
+        ...initialScores,
+        productHero: 5,
+        uiMage: 5,
+        refactorBlacksmith: 5,
+      }),
+    ).toEqual(["productHero", "uiMage", "refactorBlacksmith"]);
   });
 });

@@ -11,7 +11,7 @@ export const initialScores: Scores = {
   refactorBlacksmith: 0,
 };
 
-export const rolePriority: RoleType[] = [
+export const roleTypes: RoleType[] = [
   "productHero",
   "uiMage",
   "logicKnight",
@@ -28,15 +28,17 @@ export function addScores(
 ): Scores {
   const nextScores: Scores = { ...currentScores };
 
-  rolePriority.forEach((roleType) => {
+  roleTypes.forEach((roleType) => {
     nextScores[roleType] += answerScores[roleType] ?? 0;
   });
 
   return nextScores;
 }
 
-export function calculateResult(scores: Scores): RoleType {
-  return rolePriority.reduce((bestRole, roleType) => {
-    return scores[roleType] > scores[bestRole] ? roleType : bestRole;
-  }, rolePriority[0]);
+export function getTopRoles(scores: Scores): RoleType[] {
+  const highestScore = Math.max(
+    ...roleTypes.map((roleType) => scores[roleType]),
+  );
+
+  return roleTypes.filter((roleType) => scores[roleType] === highestScore);
 }

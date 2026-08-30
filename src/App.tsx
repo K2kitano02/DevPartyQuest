@@ -1,12 +1,13 @@
 import { useState } from "react";
 
+import FinalQuestCard from "./components/FinalQuestCard";
 import QuestionCard from "./components/QuestionCard";
 import ResultCard from "./components/ResultCard";
 import StartScreen from "./components/StartScreen";
 import { questions } from "./data/questions";
 import { results } from "./data/results";
 import type { Answer, AppStep, RoleType, Scores } from "./types/diagnosis";
-import { addScores, calculateResult, initialScores } from "./utils/diagnosis";
+import { addScores, getTopRoles, initialScores } from "./utils/diagnosis";
 import { shareToX } from "./utils/share";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState<Scores>(initialScores);
   const [scoreHistory, setScoreHistory] = useState<Scores[]>([]);
+  const [tiedRoleTypes, setTiedRoleTypes] = useState<RoleType[]>([]);
   const [resultType, setResultType] = useState<RoleType | null>(null);
 
   function handleStart() {
@@ -21,6 +23,7 @@ function App() {
     setCurrentQuestionIndex(0);
     setScores(initialScores);
     setScoreHistory([]);
+    setTiedRoleTypes([]);
     setResultType(null);
   }
 
@@ -32,8 +35,16 @@ function App() {
     setScoreHistory((history) => [...history, scores]);
 
     if (isLastQuestion) {
-      setResultType(calculateResult(nextScores));
-      setStep("result");
+      const topRoleTypes = getTopRoles(nextScores);
+
+      if (topRoleTypes.length > 1) {
+        setTiedRoleTypes(topRoleTypes);
+        setStep("tieBreak");
+      } else {
+        setResultType(topRoleTypes[0]);
+        setStep("result");
+      }
+
       return;
     }
 
@@ -50,6 +61,24 @@ function App() {
     setCurrentQuestionIndex((index) => Math.max(index - 1, 0));
     setScores(previousScores);
     setScoreHistory((history) => history.slice(0, -1));
+    setTiedRoleTypes([]);
+    setResultType(null);
+  }
+
+  function handleFinalQuestSelect(roleType: RoleType) {
+    setResultType(roleType);
+    setTiedRoleTypes([]);
+    setStep("result");
+  }
+
+  function handleFinalQuestBack() {
+    const scoresBeforeLastAnswer =
+      scoreHistory[scoreHistory.length - 1] ?? initialScores;
+
+    setStep("question");
+    setScores(scoresBeforeLastAnswer);
+    setScoreHistory((history) => history.slice(0, -1));
+    setTiedRoleTypes([]);
     setResultType(null);
   }
 
@@ -58,11 +87,26 @@ function App() {
     setCurrentQuestionIndex(0);
     setScores(initialScores);
     setScoreHistory([]);
+    setTiedRoleTypes([]);
     setResultType(null);
   }
 
   if (step === "start") {
     return <StartScreen onStart={handleStart} />;
+  }
+
+  if (step === "tieBreak" && tiedRoleTypes.length > 1) {
+    return (
+      <main className="quest-bg grid min-h-screen place-items-center px-4 py-8 sm:px-5 sm:py-10">
+        <div className="quest-content w-full max-w-2xl">
+          <FinalQuestCard
+            roleTypes={tiedRoleTypes}
+            onBack={handleFinalQuestBack}
+            onSelect={handleFinalQuestSelect}
+          />
+        </div>
+      </main>
+    );
   }
 
   if (step === "result" && resultType !== null) {

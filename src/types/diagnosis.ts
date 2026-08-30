@@ -39,4 +39,4 @@ export type Result = {
   };
 };
 
-export type AppStep = "start" | "question" | "result";
+export type AppStep = "start" | "question" | "tieBreak" | "result";
