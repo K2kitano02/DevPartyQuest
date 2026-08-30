@@ -628,7 +628,7 @@ Verified:
 
 ## Issue 15: 同点時のFINAL QUESTを実装する
 
-Status: In Progress
+Status: Done
 Branch: feature/18_tie-break-final-quest
 PR: #19
 Verified:
